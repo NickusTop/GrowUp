@@ -44,7 +44,7 @@ header {
 .hero-container {
     background: 
         linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.40)),
-        url(/imgs/bg-main.png);
+        url(imgs/bg-main.png);
     background-size: cover;
     background-position: 80% center;
     height: 431px;
@@ -95,14 +95,14 @@ header {
     overflow: hidden;
 }
 
-.main-li:nth-child(1) { background-image: url(/imgs/main-img1.png); }
-.main-li:nth-child(2) { background-image: url(/imgs/main-img2.png); }
-.main-li:nth-child(3) { background-image: url(/imgs/main-img3.png); }
-.main-li:nth-child(4) { background-image: url(/imgs/main-img4.png); }
-.main-li:nth-child(5) { background-image: url(/imgs/main-img5.png); }
-.main-li:nth-child(6) { background-image: url(/imgs/main-img6.png); }
-.main-li:nth-child(7) { background-image: url(/imgs/main-img7.png); }
-.main-li:nth-child(8) { background-image: url(/imgs/main-img8.png); }
+.main-li:nth-child(1) { background-image: url(imgs/main-img1.png); }
+.main-li:nth-child(2) { background-image: url(imgs/main-img2.png); }
+.main-li:nth-child(3) { background-image: url(imgs/main-img3.png); }
+.main-li:nth-child(4) { background-image: url(imgs/main-img4.png); }
+.main-li:nth-child(5) { background-image: url(imgs/main-img5.png); }
+.main-li:nth-child(6) { background-image: url(imgs/main-img6.png); }
+.main-li:nth-child(7) { background-image: url(imgs/main-img7.png); }
+.main-li:nth-child(8) { background-image: url(imgs/main-img8.png); }
 
 .main-img-btn {
     width: 44px;
