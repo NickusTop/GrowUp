@@ -16,6 +16,7 @@ header {
   width: 100%;
   z-index: 10;
   padding: 7px 17px;
+  overflow: visible;
 }
 
 .header-container {
@@ -25,6 +26,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 7px 17px;
+  overflow: visible;
 }
 
 .header-container.active {
@@ -41,6 +43,70 @@ header {
 .header-btn {
   display: none;
 }
+
+.header-nav {
+  overflow: visible;
+}
+
+.header-li {
+  position: relative;
+  overflow: visible;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.header-ul-menu {
+  position: absolute;
+  display: flex;
+  gap: 3px;
+  flex-direction: column;
+  top: 140%;
+  background-color: white;
+  z-index: 10;
+  padding: 6px 5px;
+  border-radius: 12px;
+  max-height: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  max-height: 900px; 
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.3s ease;
+}
+
+.header-ul-menu.open {
+  max-height: 900px;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+
+.header-li-menu {
+  color: #22780B;
+  font-size: 9px;
+  display: flex;
+  font-weight: 600;
+  align-items: center;
+}
+
+.header-li-menu a {
+  display: flex;
+  align-items: center;
+}
+
+.header-li-menu a:hover {
+  text-decoration: underline;
+}
+
+.nav-menu-svg {
+  width: 6px;
+  height: 6px;
+  margin-right: 5px;
+}
+
+
 
 .header-openburger rect {
   fill: rgb(255, 255, 255);
@@ -66,6 +132,7 @@ header {
 }
 
 .hero-btn {
+  position: relative;
   width: 121px;
   height: 34px;
   background-color: transparent;
@@ -75,6 +142,31 @@ header {
   font-size: 13px;
   font-weight: 600;
   margin-top: 25px;
+  z-index: 3;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.hero-btn::before {
+  top: 0;
+  left: 0;
+  position: absolute;
+  content: "";
+  display: inline-block;
+  width: 0px;
+  height: 100%;
+  background-color: white;
+  z-index: -1;
+  transition: width 0.3s ease;
+}
+
+.hero-btn:hover {
+  color: #000000;
+}
+
+.hero-btn:hover::before {
+  width: 100%;
+  transition: width 0.3s ease;
 }
 
 .main-container {
@@ -100,6 +192,7 @@ header {
   background-position: center;
   padding: 16px;
   overflow: hidden;
+  border-radius: 24px;
 }
 
 .main-li:nth-child(1) {
@@ -140,6 +233,7 @@ header {
   opacity: 1;
   /* transform: translateY(50px); */
   transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
 }
 
 .main-svg {
@@ -172,10 +266,14 @@ header {
   justify-content: center;
   width: 307px;
   height: 195px;
+  transform: translateY(0);
   box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .features-li:hover {
+  transform: translateY(-6px);
   box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.35);
 }
 
@@ -261,6 +359,13 @@ header {
   color: white;
 }
 
+.footer-a-contacts {
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
 .list-contacts {
   display: none;
 }
@@ -309,6 +414,12 @@ header {
   .contacts-svg {
     width: 18px;
     height: 18px;
+  }
+  .footer-a-contacts {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
   }
   .corporate-a,
   .fruits-a,
@@ -377,8 +488,12 @@ header {
   .header-container {
     padding: 0;
     border-bottom: 2px solid #fff;
+    transition: padding 0.3s ease, border-width 0.3s ease;
   }
   .header-container.active {
+    padding: 10px 10px;
+    border: 0;
+    transition: padding 0.3s ease, border-width 0.3s ease;
   }
   .header-logo {
     height: 55px;
@@ -400,6 +515,7 @@ header {
     font-weight: 500;
     display: flex;
     align-items: center;
+    position: relative;
   }
   .nav-svg {
     margin-left: 8px;
@@ -408,7 +524,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: transparent;
+    background-color: transparent; /* обычное состояние — прозрачное */
     width: 126px;
     height: 36px;
     border: 2px solid #fff;
@@ -416,7 +532,22 @@ header {
     color: white;
     font-size: 15px;
     font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease,
+      border-color 0.3s ease;
   }
+
+  .header-btn:hover {
+    background-color: rgba(
+      255,
+      255,
+      255,
+      0.25
+    ); /* полупрозрачный фон при ховере */
+    backdrop-filter: blur(6px); /* размытие фона при ховере */
+    border-color: rgba(255, 255, 255, 0.6); /* можно слегка изменить рамку */
+  }
+
   .hero-container {
     padding: 34px 44px;
   }
@@ -466,6 +597,19 @@ header {
   .hero-container {
     padding: 75px 102px;
     height: 480px;
+  }
+  .header-container.active {
+    padding: 15px;
+  }
+  .header-ul-menu {
+    padding: 13px 10px;
+  }
+  .header-li-menu {
+    font-size: 10px;
+  }
+  .nav-menu-svg {
+    height: 7px;
+    width: 7px;
   }
   .hero-h2 {
     font-size: 45px;
@@ -558,11 +702,21 @@ header {
   header {
     padding: 6px 112px;
   }
+  .header-container.active {
+    padding: 18px;
+  }
   .header-logo {
     height: 72px;
   }
   .header-a {
     font-size: 17px;
+  }
+  .header-li-menu {
+    font-size: 12px;
+  }
+  .nav-menu-svg {
+    height: 9px;
+    width: 9px;
   }
   .nav-svg {
     margin-left: 10px;
@@ -632,8 +786,21 @@ header {
   header {
     padding: 6px 132px;
   }
+  .header-container.active {
+    padding: 20px;
+  }
   .header-logo {
     height: 80px;
+  }
+  .header-ul-menu {
+    padding: 13px 10px;
+  }
+  .header-li-menu {
+    font-size: 14px;
+  }
+  .nav-menu-svg {
+    height: 11px;
+    width: 11px;
   }
   .hero-container {
     padding: 95px 132px;
@@ -708,6 +875,9 @@ header {
   .header {
     padding: 10px 132px;
   }
+  .header-container.active {
+    padding: 25px;
+  }
   .header-nav {
     gap: 54px;
   }
@@ -717,6 +887,16 @@ header {
   .header-a {
     font-size: 25px;
     font-weight: 500;
+  }
+  .header-ul-menu {
+    padding: 20px 17px;
+  }
+  .header-li-menu {
+    font-size: 15px;
+  }
+  .nav-menu-svg {
+    height: 12px;
+    width: 12px;
   }
   .nav-svg {
     margin-left: 15px;
@@ -796,6 +976,9 @@ header {
   }
   .header-a {
     font-size: 30px;
+  }
+  .header-ul-menu {
+    padding: 23px 20px;
   }
   .nav-svg {
     width: 19px;
