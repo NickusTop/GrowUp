@@ -72,3 +72,14 @@ closeModalBtn.addEventListener('click', () => {
   document.documentElement.style.overflow = 'auto';
 });
 
+const menuBtn = document.querySelector('.header-openburger');
+const menu = document.querySelector('.menu-container');
+const menuCloseBtn = document.querySelector('.menu-btn');
+
+menuBtn.addEventListener('click', () => {
+  menu.classList.toggle('active');
+});
+
+menuCloseBtn.addEventListener('click', () => {
+  menu.classList.remove('active');
+});
