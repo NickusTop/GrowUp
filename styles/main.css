@@ -70,7 +70,7 @@ header {
   overflow: hidden;
   pointer-events: none;
   opacity: 0;
-  max-height: 900px; 
+  max-height: 900px;
   transform: translateY(-10px);
   transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.3s ease;
 }
@@ -82,9 +82,8 @@ header {
   pointer-events: auto;
 }
 
-
 .header-li-menu {
-  color: #22780B;
+  color: #22780b;
   font-size: 9px;
   display: flex;
   font-weight: 600;
@@ -105,8 +104,6 @@ header {
   height: 6px;
   margin-right: 5px;
 }
-
-
 
 .header-openburger rect {
   fill: rgb(255, 255, 255);
@@ -395,9 +392,102 @@ header {
   margin-bottom: 5px;
 }
 
+.link-text {
+  position: relative;
+  display: inline-block;
+}
+
+.link-text::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 0;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.link-text:hover::after {
+  width: 100%;
+}
+
 .contacts-svg {
   width: 16px;
   height: 16px;
+}
+
+
+
+.modal-contact {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+  padding: 0 137px;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-contact.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.3s ease;
+}
+
+.modal-container {
+  position: relative;
+  background-color: white;
+  padding: 30px;
+  width: 100%;
+  transform: translateY(-30px);
+  transition: transform 0.3s ease;
+}
+
+.modal-contact.visible .modal-container {
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+
+.modal-h2 {
+  font-size: 34px;
+  font-weight: 600;
+}
+
+.modal-div {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.modal-p {
+  font-size: 16px;
+}
+
+.modal-a {
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+.modal-btn-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 17px;
+}
+
+.modal-btn {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 
 @media (min-width: 550px) {
@@ -524,7 +614,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: transparent; /* обычное состояние — прозрачное */
+    background-color: transparent;
     width: 126px;
     height: 36px;
     border: 2px solid #fff;
@@ -538,13 +628,8 @@ header {
   }
 
   .header-btn:hover {
-    background-color: rgba(
-      255,
-      255,
-      255,
-      0.25
-    ); /* полупрозрачный фон при ховере */
-    backdrop-filter: blur(6px); /* размытие фона при ховере */
+    background-color: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(6px);
     border-color: rgba(255, 255, 255, 0.6); /* можно слегка изменить рамку */
   }
 
@@ -869,6 +954,29 @@ header {
     height: 11px;
     margin-right: 5px;
   }
+  .modal-contact {
+    padding: 0 200px;
+  }
+  .modal-container {
+    padding: 44px;
+  }
+  .modal-div {
+    gap: 14px;
+  }
+  .modal-btn-list {
+    margin-bottom: 25px;
+  }
+  .modal-h2 {
+    font-size: 50px;
+  }
+  .modal-p,
+  .modal-a {
+    font-size: 22px;
+  }
+  .modal-btn {
+    width: 28px;
+    height: 28px;
+  }
 }
 
 @media (min-width: 1750px) {
@@ -1057,5 +1165,28 @@ header {
   .footer-svg {
     height: 16px;
     margin-right: 8px;
+  }
+  .modal-contact {
+    padding: 0 260px;
+  }
+  .modal-container {
+    padding: 62px;
+  }
+  .modal-div {
+    gap: 16px;
+  }
+  .modal-btn-list {
+    margin-bottom: 31px;
+  }
+  .modal-h2 {
+    font-size: 64px;
+  }
+  .modal-p,
+  .modal-a {
+    font-size: 28px;
+  }
+  .modal-btn {
+    width: 36px;
+    height: 36px;
   }
 }

@@ -1,6 +1,7 @@
 const header = document.querySelector('.header-container');
 const trigger = document.querySelector('.hero-h2');
 
+
 window.addEventListener('scroll', () => {
   const triggerTop = trigger.getBoundingClientRect().top;
 
@@ -14,10 +15,10 @@ window.addEventListener('scroll', () => {
 const menuItems = document.querySelectorAll('.header-li');
 
 menuItems.forEach(li => {
-  const submenu = li.querySelector('.header-ul-menu'); // подменю конкретного li
-  if (!submenu) return; // если подменю нет, пропускаем
+  const submenu = li.querySelector('.header-ul-menu');
+  if (!submenu) return;
 
-  let timeout = null;
+  let timeout;
 
   const openMenu = () => {
     clearTimeout(timeout);
@@ -25,6 +26,7 @@ menuItems.forEach(li => {
   };
 
   const closeMenu = () => {
+    clearTimeout(timeout);
     timeout = setTimeout(() => {
       submenu.classList.remove('open');
     }, 200);
@@ -35,5 +37,20 @@ menuItems.forEach(li => {
 
   submenu.addEventListener('mouseenter', openMenu);
   submenu.addEventListener('mouseleave', closeMenu);
+});
+
+const modalBtn = document.querySelector('.header-btn');
+const modal = document.querySelector('.modal-contact');
+const closeModalBtn = document.querySelector('.modal-btn');
+
+modalBtn.addEventListener('click', () => {
+  modal.classList.add('visible');
+  document.body.style.overflow = 'hidden';
+  document.documentElement.style.overflow = 'hidden';
+});
+closeModalBtn.addEventListener('click', () => {
+  modal.classList.remove('visible');
+  document.body.style.overflow = 'auto';
+  document.documentElement.style.overflow = 'auto';
 });
 
