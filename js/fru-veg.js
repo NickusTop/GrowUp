@@ -83,3 +83,23 @@ menuBtn.addEventListener('click', () => {
 menuCloseBtn.addEventListener('click', () => {
   menu.classList.remove('active');
 });
+
+const bigImg = document.querySelector('.main-big-img');
+const smallImgs = document.querySelectorAll('.main-img');
+
+smallImgs.forEach(smallImg => {
+    smallImg.addEventListener('click', () => {
+        bigImg.classList.add('fade-out');
+        smallImg.classList.add('fade-out');
+
+        bigImg.offsetWidth;
+
+        setTimeout(() => {
+            const tempSrc = smallImg.src;
+            smallImg.src = bigImg.src;
+            bigImg.src = tempSrc;
+            bigImg.classList.remove('fade-out');
+            smallImg.classList.remove('fade-out');
+        }, 400);
+    });
+});
