@@ -37,6 +37,7 @@ header {
 
 .header-logo {
   height: 52px;
+  transition: height 0.3s ease;
 }
 
 .header-nav,
@@ -120,14 +121,6 @@ header {
   background-color: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(6px);
   border-color: rgba(255, 255, 255, 0.6);
-}
-
-.header-btn.hover-touch {
-  background-color: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(6px);
-  border-color: rgba(255, 255, 255, 0.6);
-  transition: background-color 0.3s ease, backdrop-filter 0.3s ease,
-    border-color 0.3s ease;
 }
 
 .nav-menu-svg {
@@ -742,6 +735,8 @@ header {
     width: 30px;
     height: 30px;
     transform: translateY(50px);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
   }
 
   .main-svg {
@@ -752,6 +747,7 @@ header {
     opacity: 1;
     transform: translateY(0);
   }
+
   .footer-container {
     flex-direction: row;
     padding: 16px 102px;
@@ -901,6 +897,9 @@ header {
   }
   .header-container.active {
     padding: 20px;
+  }
+  .header-container.active .header-logo {
+    height: 50px;
   }
   .header-logo {
     height: 80px;
@@ -1218,4 +1217,3 @@ header {
     height: 36px;
   }
 }
-

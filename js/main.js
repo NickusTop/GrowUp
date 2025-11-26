@@ -1,8 +1,7 @@
 const header = document.querySelector('.header-container');
 const trigger = document.querySelector('.hero-h2');
 
-
-window.addEventListener('scroll', () => {
+function checkHeader() {
   const triggerTop = trigger.getBoundingClientRect().top;
 
   if (triggerTop <= header.offsetHeight) { 
@@ -10,7 +9,12 @@ window.addEventListener('scroll', () => {
   } else {
     header.classList.remove('active');
   }
-});
+}
+
+window.addEventListener('scroll', checkHeader);
+
+window.addEventListener('load', checkHeader);
+
 
 const menuItems = document.querySelectorAll('.header-li');
 
@@ -26,7 +30,7 @@ menuItems.forEach(li => {
     if (currentOpenMenu && currentOpenMenu !== submenu) {
       currentOpenMenu.style.transition = 'none';
       currentOpenMenu.classList.remove('open');
-      currentOpenMenu.offsetHeight;
+      currentOpenMenu.offsetHeight; // reflow
       currentOpenMenu.style.transition = '';
     }
 
@@ -55,29 +59,24 @@ menuItems.forEach(li => {
   submenu.addEventListener('mouseleave', closeMenu);
 });
 
+window.addEventListener('scroll', () => {
+  if (currentOpenMenu) {
+    currentOpenMenu.classList.remove('open');
+    currentOpenMenu = null;
+    if (timeout) {
+      clearTimeout(timeout);
+      timeout = null;
+    }
+  }
+});
+
+
 const contactBtn = document.querySelector('.header-btn');
 const footer = document.querySelector('.footer');
 
 contactBtn.addEventListener('click', () => {
   footer.scrollIntoView({ behavior: 'smooth' });
 });
-
-const buttons = document.querySelectorAll('.header-btn');
-
-buttons.forEach(btn => {
-  btn.addEventListener('touchstart', () => {
-    // добавляем класс hover на 1 секунду
-    btn.classList.add('hover-touch');
-
-    // через 1 секунду убираем
-    setTimeout(() => {
-      btn.classList.remove('hover-touch');
-    }, 1000);
-  });
-});
-
-
-
 
 const menuBtn = document.querySelector('.header-openburger');
 const menu = document.querySelector('.menu-container');
