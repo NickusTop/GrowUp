@@ -14,6 +14,8 @@ window.addEventListener('scroll', () => {
 
 const menuItems = document.querySelectorAll('.header-li');
 
+let currentOpenMenu = null;
+
 menuItems.forEach(li => {
   const submenu = li.querySelector('.header-ul-menu');
   if (!submenu) return;
@@ -21,14 +23,28 @@ menuItems.forEach(li => {
   let timeout;
 
   const openMenu = () => {
-    clearTimeout(timeout);
+    if (currentOpenMenu && currentOpenMenu !== submenu) {
+      currentOpenMenu.style.transition = 'none';
+      currentOpenMenu.classList.remove('open');
+      currentOpenMenu.offsetHeight;
+      currentOpenMenu.style.transition = '';
+    }
+
+    if (timeout) {
+      clearTimeout(timeout);
+      timeout = null;
+    }
+
     submenu.classList.add('open');
+    currentOpenMenu = submenu;
   };
 
   const closeMenu = () => {
-    clearTimeout(timeout);
+    if (timeout) clearTimeout(timeout);
     timeout = setTimeout(() => {
       submenu.classList.remove('open');
+      if (currentOpenMenu === submenu) currentOpenMenu = null;
+      timeout = null;
     }, 200);
   };
 
@@ -39,20 +55,29 @@ menuItems.forEach(li => {
   submenu.addEventListener('mouseleave', closeMenu);
 });
 
-const modalBtn = document.querySelector('.header-btn');
-const modal = document.querySelector('.modal-contact');
-const closeModalBtn = document.querySelector('.modal-btn');
+const contactBtn = document.querySelector('.header-btn');
+const footer = document.querySelector('.footer');
 
-modalBtn.addEventListener('click', () => {
-  modal.classList.add('visible');
-  document.body.style.overflow = 'hidden';
-  document.documentElement.style.overflow = 'hidden';
+contactBtn.addEventListener('click', () => {
+  footer.scrollIntoView({ behavior: 'smooth' });
 });
-closeModalBtn.addEventListener('click', () => {
-  modal.classList.remove('visible');
-  document.body.style.overflow = 'auto';
-  document.documentElement.style.overflow = 'auto';
+
+const buttons = document.querySelectorAll('.header-btn');
+
+buttons.forEach(btn => {
+  btn.addEventListener('touchstart', () => {
+    // добавляем класс hover на 1 секунду
+    btn.classList.add('hover-touch');
+
+    // через 1 секунду убираем
+    setTimeout(() => {
+      btn.classList.remove('hover-touch');
+    }, 1000);
+  });
 });
+
+
+
 
 const menuBtn = document.querySelector('.header-openburger');
 const menu = document.querySelector('.menu-container');

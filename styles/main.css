@@ -6,11 +6,6 @@
   overflow-x: hidden;
 }
 
-html, body {
-  overscroll-behavior: none;
-}
-
-
 a {
   text-decoration: none;
   color: inherit;
@@ -104,6 +99,37 @@ header {
   text-decoration: underline;
 }
 
+.header-btn {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  width: 126px;
+  height: 36px;
+  border: 2px solid #fff;
+  border-radius: 1000px;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.header-btn:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(6px);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.header-btn.hover-touch {
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(6px);
+  border-color: rgba(255, 255, 255, 0.6);
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease,
+    border-color 0.3s ease;
+}
+
 .nav-menu-svg {
   width: 6px;
   height: 6px;
@@ -147,28 +173,14 @@ header {
   z-index: 3;
   transition: color 0.3s ease;
   cursor: pointer;
-}
-
-.hero-btn::before {
-  top: 0;
-  left: 0;
-  position: absolute;
-  content: "";
-  display: inline-block;
-  width: 0px;
-  height: 100%;
-  background-color: white;
-  z-index: -1;
-  transition: width 0.3s ease;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .hero-btn:hover {
-  color: #000000;
-}
-
-.hero-btn:hover::before {
-  width: 100%;
-  transition: width 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(6px);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 .main-container {
@@ -332,7 +344,6 @@ header {
   right: 0;
 }
 
-
 .footer-logo {
   height: 157px;
   margin-bottom: 24px;
@@ -454,8 +465,6 @@ header {
   width: 16px;
   height: 16px;
 }
-
-
 
 .modal-contact {
   display: flex;
@@ -650,25 +659,6 @@ header {
   }
   .header-btn {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-    width: 126px;
-    height: 36px;
-    border: 2px solid #fff;
-    border-radius: 1000px;
-    color: white;
-    font-size: 15px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s ease, backdrop-filter 0.3s ease,
-      border-color 0.3s ease;
-  }
-
-  .header-btn:hover {
-    background-color: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(6px);
-    border-color: rgba(255, 255, 255, 0.6); /* можно слегка изменить рамку */
   }
 
   .hero-container {
@@ -1228,3 +1218,4 @@ header {
     height: 36px;
   }
 }
+
