@@ -37,6 +37,7 @@ header {
 
 .header-logo {
   height: 52px;
+  transition: height 0.3s ease;
 }
 
 .header-nav,
@@ -80,6 +81,10 @@ header {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
+}
+
+.nav-svg {
+  transition: transform 0.3s;
 }
 
 .header-li-menu {
@@ -396,77 +401,6 @@ header {
   height: 16px;
 }
 
-.modal-contact {
-  display: flex;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  justify-content: center;
-  align-items: center;
-  z-index: 20;
-  padding: 0 137px;
-
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
-.modal-contact.visible {
-  opacity: 1;
-  pointer-events: auto;
-  transition: opacity 0.3s ease;
-}
-
-.modal-container {
-  position: relative;
-  background-color: white;
-  padding: 30px;
-  width: 100%;
-  transform: translateY(-30px);
-  transition: transform 0.3s ease;
-}
-
-.modal-contact.visible .modal-container {
-  transform: translateY(0);
-  transition: transform 0.3s ease;
-}
-
-.modal-h2 {
-  font-size: 34px;
-  font-weight: 600;
-}
-
-.modal-div {
-  display: flex;
-  flex-direction: column;
-  gap: 11px;
-}
-
-.modal-p {
-  font-size: 16px;
-}
-
-.modal-a {
-  font-size: 16px;
-  text-decoration: underline;
-}
-
-.modal-btn-list {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 17px;
-}
-
-.modal-btn {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-}
-
 @media (min-width: 550px) {
   .hero-container {
     padding: 34px 44px;
@@ -512,7 +446,7 @@ header {
   header {
     display: flex;
     justify-content: center;
-    padding: 6px 42px;
+    padding: 5px 75px;
   }
   .header-container {
     padding: 0;
@@ -524,6 +458,9 @@ header {
     border: 0;
     transition: padding 0.3s ease, border-width 0.3s ease;
   }
+  .header-container.active .header-logo {
+    height: 30px;
+  }
   .header-logo {
     height: 55px;
   }
@@ -532,14 +469,14 @@ header {
   }
   .header-nav {
     display: flex;
-    gap: 35px;
+    gap: 25px;
   }
   .header-li {
     display: flex;
     align-items: center;
   }
   .header-a {
-    font-size: 15px;
+    font-size: 12px;
     color: white;
     font-weight: 500;
     display: flex;
@@ -547,7 +484,8 @@ header {
     position: relative;
   }
   .nav-svg {
-    margin-left: 8px;
+    margin-left: 3px;
+    height: 4px;
   }
   .header-btn {
     display: flex;
@@ -586,35 +524,203 @@ header {
     display: none;
   }
   .main-container {
-    padding: 36px 46px 45px 46px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 45px 75px 52px;
   }
 
   .main-h2 {
-    font-size: 48px;
+    font-size: 37px;
+  }
+  .main-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 37px 40px;
+    width: 100%;
+    margin-top: 35px;
+    justify-content: center;
   }
 
-  .contacts-a {
-    font-size: 16px;
+  .main-li {
+    width: calc(33.333% - 43.333px);
+    aspect-ratio: 1 / 1;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: auto;
+    padding: 12px;
+    overflow: hidden;
+    /* min-width: 150px; */
   }
-  .contacts-svg {
-    width: 20px;
-    height: 20px;
+
+  .main-img-btn {
+    width: 27px;
+    height: 27px;
+  }
+
+  .main-svg {
+    height: 10px;
+  }
+
+  .footer-container {
+    flex-direction: row;
+    padding: 13px 75px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-logo {
+    margin: 0;
+    height: 118px;
+    width: 104px;
+  }
+  .footer-li-contacts {
+    display: none;
+  }
+  .list-corporate,
+  .list-fruits,
+  .list-vegetables {
+    text-align: left;
+  }
+  .list-contacts {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    color: white;
   }
   .corporate-h2,
   .fruits-h2,
-  .vegetables-h2 {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 10px;
+  .vegetables-h2,
+  .contacts-h2 {
+    margin-bottom: 6px;
+    font-size: 18px;
+  }
+  .footer-svg {
+    display: flex;
+    height: 6px;
+    margin-right: 3px;
   }
   .corporate-a,
   .fruits-a,
-  .vegetables-a {
-    font-size: 12px;
-    font-weight: 600;
+  .vegetables-a,
+  .contacts-a {
+    display: flex;
+    align-items: center;
+    font-size: 9px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .corporate-a:not(:last-child),
+  .fruits-a:not(:last-child),
+  .vegetables-a:not(:last-child),
+  .contacts-a:not(:last-child) {
+    margin-bottom: 6px;
+  }
+  .footer-list-nav {
+    gap: 20px;
+    justify-content: space-between;
+    margin: 0;
+  }
+}
+
+@media (min-width: 859px) {
+  .main-img-btn {
+    width: 32px;
+    height: 32px;
+  }
+  .main-svg {
+    height: 11px;
+  }
+  header {
+    padding: 5px 86px;
+  }
+  .header-a {
+    font-size: 15px;
+  }
+  .header-btn {
+    width: 129px;
+    height: 38px;
+    font-size: 14px;
+  }
+  .header-container.active {
+    padding: 12px;
+  }
+  .header-container.active .header-logo {
+    height: 40px;
+  }
+  .main-container {
+    padding: 45px 86px 56px;
+  }
+
+  .main-h2 {
+    font-size: 46px;
+  }
+
+  .main-list {
+    gap: 38px 55px;
+  }
+
+  .main-img-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .main-svg {
+    height: 12px;
+  }
+  .footer-container {
+    flex-direction: row;
+    padding: 15px 86px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-logo {
+    margin: 0;
+    height: 125px;
+    width: 106px;
+  }
+  .footer-li-contacts {
+    display: none;
+  }
+  .list-corporate,
+  .list-fruits,
+  .list-vegetables {
+    text-align: left;
+  }
+  .list-contacts {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    color: white;
+  }
+  .corporate-h2,
+  .fruits-h2,
+  .vegetables-h2,
+  .contacts-h2 {
+    margin-bottom: 8px;
+    font-size: 20px;
+  }
+  .footer-svg {
+    display: flex;
+    height: 7px;
+    margin-right: 3px;
+  }
+  .corporate-a,
+  .fruits-a,
+  .vegetables-a,
+  .contacts-a {
+    display: flex;
+    align-items: center;
+    font-size: 9px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .corporate-a:not(:last-child),
+  .fruits-a:not(:last-child),
+  .vegetables-a:not(:last-child),
+  .contacts-a:not(:last-child) {
+    margin-bottom: 7px;
+  }
+  .footer-list-nav {
+    gap: 40px;
+    margin: 0;
   }
 }
 
@@ -625,11 +731,19 @@ header {
   header {
     padding: 6px 102px;
   }
-  .hero-container {
-    height: 270px;
+  .header-a {
+    font-size: 16px;
+  }
+  .header-btn {
+    width: 140px;
+    height: 40px;
+    font-size: 17px;
   }
   .header-container.active {
     padding: 15px;
+  }
+  .header-container.active .header-logo {
+    height: 40px;
   }
   .header-ul-menu {
     padding: 13px 10px;
@@ -648,15 +762,24 @@ header {
     font-size: 52px;
   }
   .main-list {
-    gap: 65px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px 65px;
+    width: 100%;
     margin-top: 35px;
+    justify-content: center;
   }
 
   .main-li {
-    width: 230px;
-    height: 230px;
-    padding: 12px;
+    width: calc(33.333% - 43.333px);
+    aspect-ratio: 1 / 1;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: auto;
+    padding: 18px;
     overflow: hidden;
+    /* min-width: 150px; */
   }
 
   .main-img-btn {
@@ -678,13 +801,12 @@ header {
     flex-direction: row;
     padding: 16px 102px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
   }
   .footer-logo {
     margin: 0;
     height: 132px;
     width: 116px;
-    margin-right: 84px;
   }
   .footer-li-contacts {
     display: none;
@@ -720,6 +842,7 @@ header {
     align-items: center;
     font-size: 10px;
     font-weight: 500;
+    text-decoration: none;
   }
   .corporate-a:not(:last-child),
   .fruits-a:not(:last-child),
@@ -734,17 +857,20 @@ header {
 }
 
 @media (min-width: 1220px) {
-  header {
-    padding: 6px 112px;
+   header {
+    padding: 8px 112px;
   }
   .header-container.active {
     padding: 18px;
+  }
+  .header-container.active .header-logo {
+    height: 45px;
   }
   .header-logo {
     height: 72px;
   }
   .header-a {
-    font-size: 17px;
+    font-size: 20px;
   }
   .header-li-menu {
     font-size: 12px;
@@ -759,9 +885,9 @@ header {
     height: 15px;
   }
   .header-btn {
-    width: 140px;
-    height: 40px;
-    font-size: 17px;
+    width: 170px;
+    height: 43px;
+    font-size: 20px;
   }
   .main-container {
     padding: 55px 112px 70px 112px;
@@ -770,13 +896,11 @@ header {
     font-size: 62px;
   }
   .main-list {
-    gap: 65px;
+    gap: 48px 65px;
     margin-top: 45px;
   }
 
   .main-li {
-    width: 280px;
-    height: 280px;
     padding: 12px;
   }
 
@@ -792,6 +916,7 @@ header {
 
   .footer-container {
     padding: 16px 112px;
+    justify-content: space-between;
   }
   .footer-logo {
     height: 142px;
@@ -805,7 +930,6 @@ header {
     font-size: 24px;
     font-weight: 600;
   }
-
   .contacts-a,
   .corporate-a,
   .fruits-a,
@@ -816,19 +940,30 @@ header {
 
 @media (min-width: 1440px) {
   header {
-    padding: 6px 132px;
+    padding: 10px 120px;
   }
   .header-container.active {
     padding: 20px;
   }
+  .header-container.active .header-logo {
+    height: 50px;
+  }
   .header-logo {
-    height: 80px;
+    height: 95px;
+  }
+  .header-a {
+    font-size: 24px;
   }
   .header-ul-menu {
-    padding: 13px 10px;
+    padding: 13px 13px;
   }
   .header-li-menu {
     font-size: 14px;
+  }
+  .header-btn {
+    width: 199px;
+    height: 55px;
+    font-size: 24px;
   }
   .nav-menu-svg {
     height: 11px;
@@ -838,20 +973,19 @@ header {
     height: 358px;
   }
   .main-container {
-    padding: 70px 128px 90px 128px;
+    padding: 56px 120px 86px;
   }
   .main-h2 {
-    font-size: 78px;
+    font-size: 71px;
   }
   .main-list {
-    gap: 110px;
-    margin-top: 55px;
+    gap: 56px 90px;
+    margin-top: 56px;
   }
 
   .main-li {
-    width: 320px;
-    height: 320px;
-    padding: 20px;
+    width: calc(33.333% - 60px);
+    padding: 18px;
   }
 
   .main-img-btn {
@@ -864,109 +998,93 @@ header {
     height: 18px;
   }
   .footer-container {
-    padding: 20px 132px;
+    padding: 22px 120px;
+    justify-content: space-between;
   }
   .footer-logo {
-    height: 162px;
-    width: 146px;
-    margin-right: 114px;
+    height: 210px;
+    width: auto;
+    margin-right: 0;
   }
+  .list-contacts,
+  .list-corporate,
+  .list-fruits,
+  .list-vegetables {
+    margin: 0;
+  }
+
   .contacts-h2,
   .corporate-h2,
   .fruits-h2,
   .vegetables-h2 {
-    font-size: 26px;
+    font-size: 34px;
+    margin-bottom: 16px;
   }
   .contacts-a,
   .corporate-a,
   .fruits-a,
   .vegetables-a {
-    font-size: 14px;
+    font-size: 16px;
   }
   .footer-svg {
     height: 11px;
     margin-right: 5px;
   }
-  .modal-contact {
-    padding: 0 200px;
-  }
-  .modal-container {
-    padding: 44px;
-  }
-  .modal-div {
-    gap: 14px;
-  }
-  .modal-btn-list {
-    margin-bottom: 25px;
-  }
-  .modal-h2 {
-    font-size: 50px;
-  }
-  .modal-p,
-  .modal-a {
-    font-size: 22px;
-  }
-  .modal-btn {
-    width: 28px;
-    height: 28px;
-  }
 }
 
-@media (min-width: 1750px) {
-  .header {
-    padding: 10px 132px;
+@media (min-width: 1785px) {
+  header {
+    padding: 12px 140px;
   }
   .header-container.active {
-    padding: 25px;
+    padding: 26px;
   }
-  .header-nav {
-    gap: 54px;
+  .header-container.active .header-logo {
+    height: 60px;
   }
   .header-logo {
-    height: 90px;
+    height: 105px;
   }
   .header-a {
-    font-size: 25px;
+    font-size: 27px;
     font-weight: 500;
   }
   .header-ul-menu {
-    padding: 20px 17px;
+    padding: 21px 18px;
   }
   .header-li-menu {
     font-size: 15px;
   }
   .nav-menu-svg {
-    height: 12px;
-    width: 12px;
+    height: 13px;
+    width: 13px;
   }
   .nav-svg {
-    margin-left: 15px;
-    width: 20px;
-    height: 20px;
+    margin-left: 16px;
+    width: 21px;
+    height: 21px;
   }
   .header-btn {
-    width: 180px;
-    height: 55px;
-    font-size: 22px;
+    width: 210px;
+    height: 56px;
+    font-size: 25px;
   }
   .hero-container {
     height: 408px;
   }
   .main-container {
-    padding: 80px 136px 100px 136px;
+    padding: 70px 140px 90px;
   }
   .main-h2 {
-    font-size: 90px;
+    font-size: 84px;
   }
   .main-list {
-    gap: 155px;
+    gap: 74px 148px;
     margin-top: 65px;
   }
 
   .main-li {
-    width: 380px;
-    height: 380px;
-    padding: 24px;
+    width: calc(33.333% - 98.666px);
   }
 
   .main-img-btn {
@@ -979,21 +1097,18 @@ header {
     height: 20px;
   }
   .footer-container {
-    padding: 40px 145px;
-  }
-  .footer-list-nav {
-    gap: 80px;
+    padding: 42px 142px;
   }
   .footer-logo {
-    height: 232px;
-    width: 200px;
-    margin-right: 161px;
+    height: 245px;
+    width: auto;
+    margin-right: 125px;
   }
   .contacts-h2,
   .corporate-h2,
   .fruits-h2,
   .vegetables-h2 {
-    font-size: 30px;
+    font-size: 36px;
   }
   .contacts-a,
   .corporate-a,
@@ -1002,7 +1117,7 @@ header {
     font-size: 18px;
   }
   .footer-svg {
-    height: 14px;
+    height: 15px;
     margin-right: 7px;
   }
 }
@@ -1014,11 +1129,17 @@ header {
   .header-logo {
     height: 121px;
   }
+  .header-container.active .header-logo {
+    height: 80px;
+  }
   .header-a {
     font-size: 30px;
   }
   .header-ul-menu {
     padding: 23px 20px;
+  }
+  .header-li-menu {
+    font-size: 18px;
   }
   .nav-svg {
     width: 19px;
@@ -1033,19 +1154,18 @@ header {
     height: 458px;
   }
   .main-container {
-    padding: 85px 144px 110px 144px;
+    padding: 85px 144px 110px;
   }
   .main-h2 {
-    font-size: 90px;
+    font-size: 96px;
   }
   .main-list {
-    gap: 186px;
+    gap: 93px 186px;
     margin-top: 85px;
   }
 
   .main-li {
-    width: 420px;
-    height: 420px;
+    width: calc(33.333% - 124px); 
     padding: 28px;
   }
 
@@ -1064,7 +1184,7 @@ header {
   .footer-logo {
     height: 259px;
     width: 228px;
-    margin-right: 181px;
+    margin: 0;
   }
   .footer-list-nav {
     gap: 100px;
@@ -1082,34 +1202,8 @@ header {
   .vegetables-a {
     font-size: 20px;
   }
-  .contacts-a:last-child {
-    text-decoration: underline;
-  }
   .footer-svg {
     height: 16px;
     margin-right: 8px;
-  }
-  .modal-contact {
-    padding: 0 260px;
-  }
-  .modal-container {
-    padding: 62px;
-  }
-  .modal-div {
-    gap: 16px;
-  }
-  .modal-btn-list {
-    margin-bottom: 31px;
-  }
-  .modal-h2 {
-    font-size: 64px;
-  }
-  .modal-p,
-  .modal-a {
-    font-size: 28px;
-  }
-  .modal-btn {
-    width: 36px;
-    height: 36px;
   }
 }
