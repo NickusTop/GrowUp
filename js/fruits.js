@@ -169,3 +169,15 @@ menuBtn.addEventListener('click', () => {
 menuCloseBtn.addEventListener('click', () => {
   menu.classList.remove('active');
 });
+
+const main = document.querySelector('.main-section');
+
+function resizeSections() {
+    const windowHeight = window.innerHeight;
+    hero.style.minHeight = (windowHeight * 0.5) + 'px';
+    main.style.minHeight = (windowHeight * 0.5) + 'px';
+}
+
+window.addEventListener('resize', resizeSections);
+window.addEventListener('load', resizeSections);
+

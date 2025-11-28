@@ -532,9 +532,6 @@ header {
     backdrop-filter: blur(6px);
     border-color: rgba(255, 255, 255, 0.6);
   }
-  .hero-section {
-    min-height: calc(100vh - 220px);
-  }
 
   .hero-container {
     flex: 1;
@@ -556,6 +553,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 48px 75px;
+    height: auto;
   }
 
   .main-list {

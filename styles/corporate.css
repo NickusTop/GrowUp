@@ -473,10 +473,6 @@ footer {
     border-color: rgba(255, 255, 255, 0.6);
   }
 
-  .hero-section {
-    min-height: calc(100vh - 220px);
-  }
-
   .hero-container {
     flex: 1;
     padding: 0;
@@ -491,12 +487,18 @@ footer {
   .hero-btn {
     display: none;
   }
+  .main-section {
+    display: flex;
+    justify-content: center;
+
+  }
   .main-container {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
     padding: 45px 75px;
+    height: auto;
   }
 
   .main-h2 {

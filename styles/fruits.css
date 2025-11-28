@@ -6,14 +6,13 @@
   overflow-x: hidden;
 }
 
-html, body {
-  min-height: 100%;
+html,
+body {
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
 }
-
 
 a {
   text-decoration: none;
@@ -126,11 +125,10 @@ header {
 .hero-section {
   overflow: hidden;
   display: flex;
-  flex: 1 0 auto;
+  min-height: none;
 }
 
 .hero-container {
-  flex: 1 0 auto;
   background: linear-gradient(rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.4)),
     url(../imgs/bg-main.png);
   background-size: cover;
@@ -500,17 +498,11 @@ header {
     border-color: rgba(255, 255, 255, 0.6);
   }
 
-  .hero-section {
-    min-height: calc(100vh - 220px);
-  }
-
   .hero-container {
-    flex: 1;
     padding: 0;
     background: url(../imgs/bg-main2.png);
     background-size: cover;
     background-position: center;
-    height: auto;
   }
   .hero-h2 {
     display: none;
@@ -523,6 +515,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: auto;
   }
 
   .main-h2 {
@@ -758,7 +751,8 @@ header {
   }
   .header-li-menu {
     font-size: 10px;
-  } .header-nav {
+  }
+  .header-nav {
     gap: 35px;
   }
   .nav-menu-svg {
@@ -865,7 +859,7 @@ header {
 }
 
 @media (min-width: 1220px) {
-   header {
+  header {
     padding: 8px 112px;
   }
   .header-container.active {
@@ -947,7 +941,7 @@ header {
 }
 
 @media (min-width: 1440px) {
- header {
+  header {
     padding: 10px 120px;
   }
   .header-container.active {
@@ -972,7 +966,8 @@ header {
     width: 199px;
     height: 55px;
     font-size: 24px;
-  } .header-nav {
+  }
+  .header-nav {
     gap: 65px;
   }
   .nav-menu-svg {

@@ -192,3 +192,15 @@ smallImgs.forEach((smallImg) => {
     };
   });
 });
+
+
+const main = document.querySelector('.main-section');
+
+function resizeSections() {
+    const windowHeight = window.innerHeight;
+    hero.style.minHeight = (windowHeight * 0.55) + 'px';
+    main.style.minHeight = (windowHeight * 0.45) + 'px';
+}
+
+window.addEventListener('resize', resizeSections);
+window.addEventListener('load', resizeSections);
