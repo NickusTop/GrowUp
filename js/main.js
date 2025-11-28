@@ -164,6 +164,11 @@ menuCloseBtn.addEventListener('click', () => {
   menu.classList.remove('active');
 });
 
+document.body.style.overflow = "hidden";
+
 window.addEventListener("load", () => {
-    document.getElementById("preloader").classList.add("hide");
+    const preloader = document.getElementById("preloader");
+    preloader.classList.add("hide");
+    document.body.style.overflow = "";
 });
+
