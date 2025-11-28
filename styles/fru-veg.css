@@ -376,6 +376,7 @@ header {
   width: 0;
   background-color: white;
   transition: width 0.3s ease;
+  visibility: hidden;
 }
 
 .link-text:hover::after {
@@ -903,6 +904,9 @@ header {
   .footer-list-nav {
     gap: 40px;
     margin: 0;
+  }
+  .link-text::after {
+    visibility: visible;
   }
 }
 
