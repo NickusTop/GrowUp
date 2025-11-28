@@ -126,11 +126,9 @@ header {
 .hero-section {
   overflow: hidden;
   display: flex;
-  flex: 1 0 auto;
 }
 
 .hero-container {
-  flex: 1 0 auto;
   background: linear-gradient(rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.4)),
     url(../imgs/bg-main.png);
   background-size: cover;
@@ -140,6 +138,7 @@ header {
   flex-direction: column;
   justify-content: end;
   padding: 24px 34px;
+  width: 100%;
 }
 
 .hero-h2 {
