@@ -6,14 +6,14 @@
   overflow-x: hidden;
 }
 
-html, body {
+html,
+body {
   min-height: 100%;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
 }
-
 
 a {
   text-decoration: none;
@@ -36,13 +36,13 @@ header {
   align-items: center;
   padding: 7px 17px;
   overflow: visible;
-   transition: padding 0.3s ease, background-color 0.3s ease;
+  transition: padding 0.3s ease, background-color 0.3s ease;
 }
 
 .header-container.active {
   background-color: #084902f2;
   border-radius: 20px;
-   transition: padding 0.3s ease, background-color 0.3s ease;
+  transition: padding 0.3s ease, background-color 0.3s ease;
 }
 
 .header-logo {
@@ -124,7 +124,14 @@ header {
   fill: rgb(255, 255, 255);
 }
 
+.hero-section {
+  overflow: hidden;
+  display: flex;
+  flex: 1 0 auto;
+}
+
 .hero-container {
+  flex: 1 0 auto;
   background: linear-gradient(rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.4)),
     url(../imgs/bg-main.png);
   background-size: cover;
@@ -159,21 +166,12 @@ header {
   cursor: pointer;
 }
 
-.main-section {
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-}
-
 .main-container {
   padding: 34px 34px 26px 34px;
   display: flex;
   flex-direction: column;
-   overflow: hidden;
-   width: 100%;
-
+  overflow: hidden;
+  width: 100%;
 }
 
 .main-h2 {
@@ -197,7 +195,6 @@ header {
 footer {
   flex: 0 0 auto;
 }
-
 
 .footer-container {
   background-color: #084902;
@@ -476,21 +473,23 @@ footer {
     border-color: rgba(255, 255, 255, 0.6);
   }
 
+  .hero-section {
+    min-height: calc(100vh - 220px);
+  }
+
   .hero-container {
+    flex: 1;
     padding: 0;
     background: url(../imgs/bg-main2.png);
     background-size: cover;
     background-position: center;
-    height: 220px;
+    height: auto;
   }
   .hero-h2 {
     display: none;
   }
   .hero-btn {
     display: none;
-  }
-  .main-section {
-    min-height: calc(100vh - 220px);
   }
   .main-container {
     display: flex;
@@ -615,7 +614,7 @@ footer {
     align-items: center;
     padding: 65px 86px;
   }
-   .main-h2 {
+  .main-h2 {
     font-size: 46px;
     margin: 0;
   }
@@ -696,7 +695,7 @@ footer {
 }
 
 @media (min-width: 1024px) {
- .header-logo {
+  .header-logo {
     height: 67px;
   }
   header {
@@ -808,7 +807,7 @@ footer {
 }
 
 @media (min-width: 1220px) {
-   header {
+  header {
     padding: 8px 112px;
   }
   .header-container.active {
@@ -863,7 +862,7 @@ footer {
     width: 300px;
     max-height: 300px;
   }
- .footer-container {
+  .footer-container {
     padding: 16px 112px;
     justify-content: space-between;
   }
@@ -920,6 +919,10 @@ footer {
   .nav-menu-svg {
     height: 11px;
     width: 11px;
+  }
+  .hero-section {
+    flex: 0;
+    min-height: 0;
   }
   .hero-container {
     height: 380px;
@@ -983,7 +986,7 @@ footer {
 }
 
 @media (min-width: 1785px) {
- header {
+  header {
     padding: 12px 140px;
   }
   .header-container.active {
@@ -1075,7 +1078,7 @@ footer {
 }
 
 @media (min-width: 1920px) {
- header {
+  header {
     padding: 12px 144px;
   }
   .header-logo {

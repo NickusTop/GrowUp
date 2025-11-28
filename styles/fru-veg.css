@@ -6,7 +6,8 @@
   overflow-x: hidden;
 }
 
-html, body {
+html,
+body {
   min-height: 100%;
   margin: 0;
   padding: 0;
@@ -122,7 +123,14 @@ header {
   fill: rgb(255, 255, 255);
 }
 
+.hero-section {
+  overflow: hidden;
+  display: flex;
+  flex: 1 0 auto;
+}
+
 .hero-container {
+  flex: 1 0 auto;
   background: linear-gradient(rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.4)),
     url(../imgs/bg-main.png);
   background-size: cover;
@@ -155,14 +163,6 @@ header {
   z-index: 3;
   transition: color 0.3s ease;
   cursor: pointer;
-}
-
-.main-section {
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
 }
 
 .main-container {
@@ -532,22 +532,23 @@ header {
     backdrop-filter: blur(6px);
     border-color: rgba(255, 255, 255, 0.6);
   }
+  .hero-section {
+    min-height: calc(100vh - 220px);
+  }
 
   .hero-container {
+    flex: 1;
     padding: 0;
     background: url(../imgs/bg-main2.png);
     background-size: cover;
     background-position: center;
-    height: 220px;
+    height: auto;
   }
   .hero-h2 {
     display: none;
   }
   .hero-btn {
     display: none;
-  }
-  .main-section {
-    min-height: calc(100vh - 220px);
   }
   .main-container {
     display: flex;
@@ -697,7 +698,7 @@ header {
     gap: 18px;
   }
   .main-imgs-list {
-    gap: 10px
+    gap: 10px;
   }
   .main-big-img {
     width: 205px;
@@ -1061,8 +1062,12 @@ header {
     height: 11px;
     width: 11px;
   }
+  .hero-section {
+    flex: 0;
+    min-height: 0;
+  }
   .hero-container {
-    height: 358px;
+    height: 380px;
   }
   .main-container {
     display: flex;
@@ -1197,7 +1202,7 @@ header {
     font-size: 25px;
   }
   .hero-container {
-    height: 408px;
+    height: 420px;
   }
   .main-container {
     display: flex;

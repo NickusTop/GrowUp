@@ -124,14 +124,18 @@ function handleMouseLeave(e) {
 
 function handleClick(e) {
     e.stopPropagation();
-    e.preventDefault();
+    
     const submenu = e.currentTarget.querySelector(".header-ul-menu");
-    if (submenu.classList.contains("open")) {
-        closeMenu();
-    } else {
-        openMenu(submenu);
+    if (submenu) {
+        if (submenu.classList.contains("open")) {
+            closeMenu();
+        } else {
+            openMenu(submenu);
+        }
     }
 }
+
+
 
 const touchModeQuery = window.matchMedia("(hover: none)");
 
