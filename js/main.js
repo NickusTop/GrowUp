@@ -166,4 +166,4 @@ menuCloseBtn.addEventListener('click', () => {
 
 window.addEventListener("load", () => {
     document.getElementById("preloader").classList.add("hide");
-  });
+});
