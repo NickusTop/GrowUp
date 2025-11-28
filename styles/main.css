@@ -251,13 +251,24 @@ header {
     transform: translateY(0);
 } */
 
+.features-container {
+  padding: 34px 50px;
+}
+
+.features-a {
+  max-width: 307px;
+}
+
 .features-list {
   display: flex;
   gap: 20px;
   padding: 0;
+  flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   overflow: visible;
+
 }
 .features-li {
   width: 250px;
@@ -535,6 +546,23 @@ header {
     font-size: 32px;
     line-height: 1.2;
   }
+  .features-container {
+    padding: 34px 50px;
+  }
+  .features-a {
+    display: inline-block;
+    max-width: 307px;
+    width: auto;
+  }
+  .features-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .features-li {
+    width: 307px;
+    height: auto;
+  }
   .contacts-a {
     font-size: 14px;
   }
@@ -561,14 +589,22 @@ header {
     width: 500px;
   }
   .main-container {
-    padding: 50px 0;
+    padding: 50px 34px;
+    justify-content: center;
   }
-  .main-list {
+  .features-container {
+    padding: 34px 50px;
+  }
+  .features-list {
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .main-list {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    padding: 0 20px;
   }
 
   .main-li {
@@ -582,15 +618,11 @@ header {
   .main-svg {
     height: 12px;
   }
-  .features-img {
-    width: 186px;
-    height: 89px;
+  .features-list {
+    align-items: center;
   }
-
-  .features-h2 {
-    margin-top: 12px;
-    font-size: 19px;
-    font-weight: 600;
+  .features-a {
+    max-width: 307px;
   }
 }
 
@@ -695,8 +727,14 @@ header {
   .features-container {
     padding: 45px 75px;
   }
+  .features-a {
+    display: inline-block;
+    max-width: none;
+    width: auto;
+  }
   .features-list {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
   }
   .features-li {
@@ -901,14 +939,6 @@ header {
     margin: 0;
   }
 }
-
-/* Ховер только на устройствах, где hover реально есть */
-@media (hover: hover) and (pointer: fine) {
-  .header-btn:hover {
-    background-color: #f00; /* пример ховера */
-  }
-}
-
 
 
 @media (min-width: 1024px) {
@@ -1471,9 +1501,6 @@ header {
   .header-container.active .header-logo {
     height: 80px;
   }
-  .header-nav {
-    gap: 54px;
-  }
   .header-a {
     font-size: 30px;
   }
@@ -1482,6 +1509,9 @@ header {
   }
   .header-li-menu {
     font-size: 18px;
+  }
+  .header-nav {
+    gap: 48px;
   }
   .nav-svg {
     width: 19px;

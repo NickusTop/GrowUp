@@ -107,14 +107,18 @@ function handleMouseLeave(e) {
 
 function handleClick(e) {
     e.stopPropagation();
-    e.preventDefault();
+    
     const submenu = e.currentTarget.querySelector(".header-ul-menu");
-    if (submenu.classList.contains("open")) {
-        closeMenu();
-    } else {
-        openMenu(submenu);
+    if (submenu) {
+        if (submenu.classList.contains("open")) {
+            closeMenu();
+        } else {
+            openMenu(submenu);
+        }
     }
 }
+
+
 
 const touchModeQuery = window.matchMedia("(hover: none)");
 
@@ -144,6 +148,19 @@ contactBtn.addEventListener('click', () => {
   setTimeout(() => {
     contactBtn.classList.remove('hover');
   }, 200);
+});
+
+
+const menuBtn = document.querySelector('.header-openburger');
+const menu = document.querySelector('.menu-container');
+const menuCloseBtn = document.querySelector('.menu-btn');
+
+menuBtn.addEventListener('click', () => {
+  menu.classList.toggle('active');
+});
+
+menuCloseBtn.addEventListener('click', () => {
+  menu.classList.remove('active');
 });
 
 
