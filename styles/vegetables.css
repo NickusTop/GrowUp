@@ -852,6 +852,7 @@ header {
   .footer-list-nav {
     gap: 40px;
     margin: 0;
+    /* height: 100%; */
   }
   .link-text::after {
     visibility: visible;
