@@ -106,6 +106,7 @@ function handleMouseLeave(e) {
 }
 
 function handleClick(e) {
+    e.preventDefault();
     e.stopPropagation();
     
     const submenu = e.currentTarget.querySelector(".header-ul-menu");
@@ -163,5 +164,6 @@ menuCloseBtn.addEventListener('click', () => {
   menu.classList.remove('active');
 });
 
-
-
+window.addEventListener("load", () => {
+    document.getElementById("preloader").classList.add("hide");
+  });

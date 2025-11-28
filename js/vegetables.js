@@ -123,6 +123,7 @@ function handleMouseLeave(e) {
 }
 
 function handleClick(e) {
+    e.preventDefault();
     e.stopPropagation();
     
     const submenu = e.currentTarget.querySelector(".header-ul-menu");
@@ -181,3 +182,7 @@ function resizeSections() {
 
 window.addEventListener('resize', resizeSections);
 window.addEventListener('load', resizeSections);
+
+window.addEventListener("load", () => {
+    document.getElementById("preloader").classList.add("hide");
+  });

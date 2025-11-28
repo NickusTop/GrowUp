@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
-  overflow-x: hidden;
+
 }
 
 html,
@@ -788,17 +788,12 @@ header {
   .main-img-btn {
     width: 35px;
     height: 35px;
-    transform: translateY(70px);
   }
 
   .main-svg {
     height: 14px;
   }
 
-  .main-li:hover .main-img-btn {
-    opacity: 1;
-    transform: translateY(0);
-  }
 
   .footer-container {
     flex-direction: row;
@@ -914,6 +909,11 @@ header {
     width: 45px;
     height: 45px;
     transform: translateY(70px);
+  }
+
+  .main-li:hover .main-img-btn {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .main-svg {
@@ -1217,4 +1217,21 @@ header {
     height: 16px;
     margin-right: 8px;
   }
+}
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #084902;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+#preloader.hide {
+  opacity: 0;
+  pointer-events: none;
 }
