@@ -1606,12 +1606,12 @@ header {
 #preloader {
     position: fixed;
     inset: 0;
-    background: #ffffff;
+    background: #084902;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 9999;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.5s ease;
 }
 
 #preloader.hide {
@@ -1622,12 +1622,17 @@ header {
 .loader-line {
     width: 0;
     height: 4px;
-    background: #000;
-    animation: loading 1.6s ease-in-out forwards;
+    background: #ffffff;
+    border-radius: 4px;
+    transition: width 0.2s ease-out;    
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
 }
 
 @keyframes loading {
-    0% { width: 0; }
-    100% { width: 200px; }
+    to { 
+        transform: scaleX(1); 
+    }
 }
+
+
 
