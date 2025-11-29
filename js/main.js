@@ -169,36 +169,13 @@ menuCloseBtn.addEventListener('click', () => {
   menu.classList.remove('active');
 });
 
-const maxWidth = 220;
-const loaderLine = document.querySelector('.loader-line');
-const preloader = document.getElementById("preloader");
+window.addEventListener('load', () => {
+    const elements = document.querySelectorAll('.fade-in');
+    elements.forEach(el => {
+      el.classList.add('visible');
+    });
+  });
 
-let width = 0;
-let loadInterval;
 
-function startLoading() {
-    loadInterval = setInterval(() => {
-        if (width < maxWidth * 0.9) {
-            width += Math.random() * 5; 
-        } else {
-            if (width < maxWidth * 0.95) {
-                width += 0.5;
-            }
-        }
-        loaderLine.style.width = width + 'px';
-    }, 100);
-}
 
-startLoading();
-
-window.addEventListener("load", () => {
-    clearInterval(loadInterval);
-    loaderLine.style.width = maxWidth + 'px';
-    
-    setTimeout(() => {
-        preloader.classList.add("hide");
-         document.documentElement.style.overflow = "visible"; 
-        document.body.style.overflow = "visible";
-    }, 500); 
-});
 
