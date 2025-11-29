@@ -188,8 +188,6 @@ function resizeSections() {
 window.addEventListener('resize', resizeSections);
 window.addEventListener('load', resizeSections);
 
-document.body.style.overflow = "hidden";
-
 const maxWidth = 220;
 const loaderLine = document.querySelector('.loader-line');
 const preloader = document.getElementById("preloader");
@@ -213,12 +211,13 @@ function startLoading() {
 startLoading();
 
 window.addEventListener("load", () => {
-
     clearInterval(loadInterval);
     loaderLine.style.width = maxWidth + 'px';
+    
     setTimeout(() => {
         preloader.classList.add("hide");
-        document.body.style.overflow = "";
+         document.documentElement.style.overflow = "visible"; 
+        document.body.style.overflow = "visible";
     }, 500); 
 });
 
