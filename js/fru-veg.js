@@ -203,16 +203,7 @@ smallImgs.forEach((smallImg) => {
         };
         
     });
-});
-
-document.querySelectorAll(".main-img").forEach((img) => {
-    const timestamp = new Date().getTime(); 
-    if (img.src.indexOf('?') === -1) {
-        img.src = img.src + '?' + timestamp;
-    } else {
-        img.src = img.src + '&t=' + timestamp;
-    }
-});
+})
 
 
 

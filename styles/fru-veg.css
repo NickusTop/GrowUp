@@ -179,6 +179,8 @@ header {
   gap: 15px;
   width: 100%;
   overflow: visible;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .main-big-img {
@@ -195,6 +197,8 @@ header {
   gap: 26px;
   width: 100%;
   overflow: visible;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .main-img {
