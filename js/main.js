@@ -167,8 +167,7 @@ menuCloseBtn.addEventListener('click', () => {
 document.body.style.overflow = "hidden";
 
 window.addEventListener("load", () => {
-    const preloader = document.getElementById("preloader");
-    preloader.classList.add("hide");
+    document.getElementById("preloader").classList.add("hide");
     document.body.style.overflow = "";
 });
 
